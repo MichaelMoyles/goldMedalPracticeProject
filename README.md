@@ -1,12 +1,11 @@
 # Gold Medal Metrics Challenge Project
 
 ### Overview
-In this project, you will use Spring Data JPA to power an Olympics analytics web app.
+This project, uses Spring Data JPA to power an Olympics analytics web app.
 
 ### Testing
-You can use cURL to manually test your API endpoints.
+The API endpoints can be tested manually with cURL.
 
-Here are some example cURL requests and responses.
 
 #### Get countries, sorted by name in ascending order 
 
