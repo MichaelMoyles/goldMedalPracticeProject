@@ -1,20 +1,27 @@
 package com.codecademy.goldmedal.controller;
 
 import com.codecademy.goldmedal.model.*;
+import com.codecademy.goldmedal.repo.CountryRepo;
+import com.codecademy.goldmedal.repo.GoldMedalRepo;
 import org.apache.commons.text.WordUtils;
 import org.springframework.web.bind.annotation.*;
+import com.codecademy.goldmedal.model.Medals;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/countries")
 public class GoldMedalController {
     // TODO: declare references to your repositories
-
+    private CountryRepo countryRepo;
+    private GoldMedalRepo goldMedalRepo;
     // TODO: update your constructor to include your repositories
     public GoldMedalController() {
+        this.countryRepo = countryRepo;
+        this.goldMedalRepo = goldMedalRepo;
     }
 
     @GetMapping
@@ -40,7 +47,7 @@ public class GoldMedalController {
         List<GoldMedal> medalsList;
         switch (sortBy) {
             case "year":
-                medalsList = // TODO: list of medals sorted by year in the given order
+                medalsList = ascendingOrder ? goldMedalRepo.getByCountryOrderByYearAsc(countryName) : goldMedalRepo.getByCountryOrderByYearDesc(countryName);
                 break;
             case "season":
                 medalsList = // TODO: list of medals sorted by season in the given order

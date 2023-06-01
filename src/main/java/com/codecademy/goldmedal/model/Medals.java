@@ -1,5 +1,7 @@
 package com.codecademy.goldmedal.model;
 
+import org.springframework.data.repository.CrudRepository;
+
 public class Medals {
     private Iterable<GoldMedal> medals;
 
